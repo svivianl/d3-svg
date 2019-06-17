@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css" type="text/css" />
+    </head>
+
+    <body>
+        <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <!-- blue rectangle -->
+            <rect x='50' y='100' width='700' height='300' fill='#91f4ff' />
+            <!-- yellow rectangle -->
+            <rect x='50' y='200' width='700' height='100' fill='#ffff9b' />
+            <!-- black triangle
+            (x,y) top left
+            (x,y) middle right
+            (x,y) bottom left
+            default fill is black
+            -->
+            <polygon points='50,100 300,250 50,400 '/>
+
+            <text x='400' y='50' text-anchor='middle' font-size='1.5em' font-family='sans-serif'
+                fill='white' stroke-width='1px' stroke='black'>The Bahamas</text>
+        </svg>
+
+        <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <!-- black rectangle -->
+            <rect x='50' y='100' width='700' height='300'/>
+            <!-- green polygon
+            (x,y) top left
+            (x,y) top right
+            (x,y) bottom left
+            (x,y) bottom right
+            -->
+            <polygon points='50,100 750,100 50,400 750,400 ' fill='#33b20c'/>
+            <!-- yellow lines -->
+            <g stroke-width='10px' stroke='#efef1a'>
+                <line x1='50' y1='100' x2='750' y2='400' />
+                <line x1='50' y1='400' x2='750' y2='100' />
+            </g>
+
+            <text x='400' y='50' text-anchor='middle' font-size='1.5em' font-family='sans-serif'
+                fill='white' stroke-width='1px' stroke='black'>Jamaica</text>
+        </svg>
+
+        <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <!-- red rectangle -->
+            <rect x='50' y='100' width='700' height='300' fill='red' />
+            <!-- yellow triangles
+                50,100             400,100               750,100
+
+                50,250             400,250               750,250
+
+                50,400             400,400               750,400
+            -->
+            <g fill='yellow'>
+                <path d='M50 100 L750 400 L700 400 L100 100 z' />
+                <path d='M375 100 L425 400 L375 400 L425 100 z' />
+                <path d='M700 100 L100 400 L50 400 L750 100 z' />
+                <path d='M50 225 L750 275 L750 225 L50 275 z' />
+            </g>
+            <!-- red circle -->
+            <circle cx="400" cy="250" r="60" fill="red" />
+            <!-- yellow circle -->
+            <circle cx="400" cy="250" r="50" fill="yellow" />
+
+            <text x='400' y='50' text-anchor='middle' font-size='1.5em' font-family='sans-serif'
+                fill='white' stroke-width='1px' stroke='black'>Macedonia</text>
+        </svg>
+
+        <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <!-- red circle -->
+            <circle cx="400" cy="250" r="90" fill="red" />
+            <!-- blue semi-circle -->
+            <path fill="blue" d="M400 250a45 45 0 0 1 78 45A90 90 0 1 1 400 160"/>
+            <path fill="red" d="M400 250a45 45 0 0 1 -78 -45A90 90 0 0 1 400 160"/>
+            <!-- bars
+            transform= translate to change the origin of the coordates to the middle
+            -->
+            <g stroke='black' stroke-width='15px' transform='translate(400, 250)'>
+                <path d='M-250 -50v100m25 0v-100m25 0v100
+                         M200-50v45m0 10v45m25 0v-45m0 -10v-45m25 0v45m0 10v45'
+                        transform='rotate(30)'/>
+                <path d='M-250 -50v100m25 0v-45m0-10v-45m25 0v100
+                         M200-50v45m0 10v45m25 0v-100m25 0v45m0 10v45'
+                        transform='rotate(-30)'/>
+            </g>
+
+            <text x='400' y='50' text-anchor='middle' font-size='1.5em' font-family='sans-serif'
+                fill='white' stroke-width='1px' stroke='black'>South Korea</text>
+        </svg>
+
+
+    </body>
+
+</html>

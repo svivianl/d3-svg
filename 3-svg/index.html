@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css" type="text/css" />
+    </head>
+    
+    <body>
+        <svg 
+            version="1.1" 
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- x1 and y1 are the begining and x2 and y2 are the end point 
+                by default lines have no width to make the line visible. We need to set the stroke width. 
+            -->
+            <line x1='100' y1='110' x2='700' y2='350' stroke-width='5px' stroke='blue'/>
+            <line x1='100' y1='350' x2='700' y2='100' stroke-width='5px' stroke='blue'/>
+            
+            <!-- you can group by using the tag g -->
+            <g stroke-width='5px' stroke='red'>
+                <line x1='50' y1='80' x2='70' y2='50' />
+                <line x1='50' y1='50' x2='70' y2='80' />
+            </g>
+            
+        </svg>    
+        <svg 
+            version="1.1" 
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- draw a rectangle 
+                check that the second rectangle does not go beyond the SVG area and it is in front of the first rectangle
+                to make the first rectangle be in front of the second, you need to change the order of the tags, the Z here does not work
+                rx and ry are to round the corners
+            -->
+            <rect rx='30' ry='30' x='10' y='100' width='300' height='200' fill='#ffc107' stroke='#2196f3' stroke-width='8px' />
+            <rect x='250' y='270' width='300' height='200' fill='#e91e63' stroke='#795548' stroke-width='8px' />
+            
+            <!-- you can draw a rectangle using polygon -->
+            <polygon points='400,100 500,100 500,200 400,200' fill='#ffc107' stroke='#2196f3' stroke-width='8px' />
+        </svg>    
+        
+        <svg 
+            version="1.1" 
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+            
+            <polygon
+                fill="yellow"
+                stroke="black"
+                stroke-width="8px"
+                points="400,21.5 450.5,177 614,177 481.5,273 532.5,428.5 400,332.5 267.5,428.5 318.5,273 186,177 349.5,177"
+            />
+            <circle cx="400" cy="250" r="60" fill="black" />
+            <circle cx="400" cy="235" r="65" fill="yellow" />
+            <circle cx="370" cy="210" r="10" fill="black" />
+            <circle cx="430" cy="210" r="10" fill="black" />
+            
+            <!-- text-anchor set the x and y, in this case, to the middle of the text -->
+            <text x='400' y='430' text-anchor='middle' font-size='1.5em' font-family='sans-serif'
+                fill='white' stroke-width='1px' stroke='black' transform='rotate(-30 400,330)'>Star Hello :)</text>
+        </svg>
+        
+        <svg 
+            version="1.1" 
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+            
+            <!--
+            The first one is the M command which just moves the cursor to the specified coordinates.
+            This is like you lifting your pencil off the paper and putting it down in any location.
+            The command does not draw anything.
+            It simply moves the cursor.
+            The L command: draws a line from the cursors current position to whatever destination we specify.
+            By chaining all commands together we essentially get the same functionality we had the polygon command from before.
+            
+            Uppercase x lowercase commands
+                Uppercase: X and Y represent the location you want to go to
+                Lowercase: x and y represent how far you want to go from your current position
+            -->
+            <path
+                d='M400 100
+                    L500 300
+                    L300 300
+                    L400 100'
+                stroke='purple'
+                stroke-width='3'
+            />
+            
+            <!-- When you want to draw a straight line from your current position back to the starting position you can use the Z/z command which simply closes the path.
+            And if you want to draw a horizontal or vertical line you can use the H/h or V/v commands and omit the co-ordinate.
+            That isn't changing.
+            -->
+            <path
+                d='M400 100
+                    L500 300
+                    h-200
+                    z'
+                stroke='purple'
+                stroke-width='3'
+                fill='white'
+            />
+        </svg>
+        
+        <svg 
+            version="1.1" 
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+            
+            <g fill='none' stroke-width='3px'>
+                <!--
+                curved edges
+                a. Q - quadratics cubic 
+                    Q cx cy, x y
+                    x y - destination point
+                    cx cy point that controls the shape of the curve
+                b. C - Bezier curves
+                    more fine tuned control over the curve shape then you can pass three pairs of coordinates
+                    takes in two control points instead of one allowing you to draw a larger family of curves
+                c. A - arcs of circles
+                    There are seven values you need for the command
+                    A rx ry rotate largeArc sweep x y
+                    rx and ry are the radius and the direction and the radius in the wider section of the arc
+                        When these values are equal you'll draw the arc of a circle.
+                        Otherwise you will draw the arc of an ellipse.
+                    
+                    x y specify your destination. That is where you want the arc to move to
+                -->
+                <path
+                    d='M100 100
+                        Q700 200 700 350'
+                    stroke='blue'
+                />
+                
+                <path
+                    d='M0 100
+                        C200 450 400 0 800 225'
+                    stroke='red'
+                />
+                
+            </g>
+            
+            <path d='M300 250 A100 200 90 1 0 480 300' fill='red' />
+            <path d='M300 250 A100 100 0 1 0 480 300' fill='orange' />
+            <path d='M300 250 A100 100 0 1 1 480 300' fill='purple' />
+            <path d='M300 250 A100 100 0 0 0 480 300' fill='green' />
+            <path d='M300 250 A100 100 0 0 1 480 300' fill='blue' />
+            <circle cx='300' cy='250' r='5' />
+            <circle cx='480' cy='300' r='5' />
+        </svg>
+    </body>
+    
+</html>
